@@ -73,9 +73,7 @@ inkex (before Inkscape 1.0) library files. Those six files were originally in
 py2.  I upgraded them to py3 with the 2to3 tool in Python stdlib. 
 
 The inkex API is rewritten since Inkscape 1.0.  I don't plan to spend more 
-time on this project unless for obvious and easy bugs.  The code base could 
-serve an example for other projects. 
-
-The tools work fine for simple traffic sign generation as demonstrated by 
-the files in the /yaml directory. 
+time on this project except for fixing obvious and easy bugs. The tools work fine 
+for simple traffic sign generation as demonstrated by the files in the /yaml 
+directory. The code base could serve as an example for other similar projects. 
 
