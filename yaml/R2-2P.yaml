@@ -1,0 +1,26 @@
+sign:
+  fcolor: 'black'
+  bcolor: 'white'
+  shape: 'rect'
+  border:
+    width: 24
+    height: 24
+    radius: 1.5
+    offset: .375
+    bdwidth: .625
+    strokewidth: 5
+    drawmark: false  
+  messages:
+    - message:
+        fontheight: 4
+        fontsize: 'D'
+        message: 'TRUCKS'
+        distance: 4
+        drawbox: false
+    - message:
+        fontheight: 10
+        fontsize: 'E'
+        message: '40'
+        distance: 10.5
+        drawbox: false
+

@@ -1,0 +1,31 @@
+sign:
+  fcolor: 'black'
+  bcolor: 'white'
+  shape: 'rect'
+  border:
+    width: 24
+    height: 18
+    radius: 1.5
+    offset: 0.375
+    bdwidth: 0.625
+    strokewidth: 5
+    drawmark: false  
+  messages:
+    - message:
+        fontheight: 3
+        fontsize: 'D'
+        message: 'EXCEPT'
+        distance: 2.5
+        drawbox: false
+    - message:
+        fontheight: 3
+        fontsize: 'D'
+        message: 'RIGHT'
+        distance: 7.5
+        drawbox: false
+    - message:
+        fontheight: 3
+        fontsize: 'D'
+        message: 'TURN'
+        distance: 12.5
+        drawbox: false

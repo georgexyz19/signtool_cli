@@ -1,0 +1,26 @@
+(dev_cli) george@STK2M3:~/dev_cli$ python signtool_cli.py --help
+Usage: signtool_cli.py [OPTIONS] FILENAME [OUTPUT_FILENAME]
+
+Options:
+  -w, --width INTEGER  Width of the sign in inches for output svg
+  -r, --ratio FLOAT    Ratio to true scale when drawing the sign, default 1.0
+  --help               Show this message and exit.
+
+
+(dev_cli) george@STK2M3:~/dev_cli$ python signtool_dir.py --help
+Usage: signtool_dir.py [OPTIONS] INPUT_DIR [OUTPUT_DIR]
+
+Options:
+  -w, --width INTEGER  Width of the sign in inches for output svg
+  -r, --ratio FLOAT    Ratio to true scale when drawing the sign, default 1.0
+  --help               Show this message and exit.
+
+
+
+(dev_cli) george@STK2M3:~/dev_cli$ python signtool_dir.py ./yaml/ ./svg/
+Write the file to ./svg/W8-5P.svg
+Write the file to ./svg/R2-1.svg
+Write the file to ./svg/R1-10P.svg
+Write the file to ./svg/W3-8.svg
+Write the file to ./svg/R2-6bP.svg
+

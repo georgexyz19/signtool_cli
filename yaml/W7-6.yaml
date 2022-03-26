@@ -1,0 +1,32 @@
+sign:
+  fcolor: 'black'
+  bcolor: 'yellow'
+  shape: 'diamond'
+  border:
+    diamond_width: 30
+    diamond_radius: 1.875
+    diamond_offset: 0.5
+    diamond_bdwidth: 0.75
+    strokewidth: 5
+    drawmark: false
+  messages:
+    - message:
+        fontheight: 5
+        fontsize: 'D'
+        message: 'HILL'
+        distance: -11.4
+        drawbox: false
+    - message:
+        fontheight: 5
+        fontsize: 'D'
+        message: 'BLOCKS'
+        distance: -2.6
+        drawbox: false
+    - message:
+        fontheight: 5
+        fontsize: 'D'
+        message: 'VIEW'
+        distance: 6.2
+        drawbox: false
+
+

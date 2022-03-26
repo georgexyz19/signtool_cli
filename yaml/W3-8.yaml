@@ -1,0 +1,37 @@
+sign:
+  fcolor: 'black'
+  bcolor: 'yellow'
+  shape: 'diamond'
+  border:
+    diamond_width: 36
+    diamond_radius: 3
+    diamond_offset: 0.75
+    diamond_bdwidth: 1
+    strokewidth: 5
+    drawmark: false
+  messages:
+    - message:
+        fontheight: 4
+        fontsize: 'D'
+        message: 'RAMP'
+        distance: -13
+        drawbox: false
+    - message:
+        fontheight: 4
+        fontsize: 'D'
+        message: 'METERED'
+        distance: -6.5
+        drawbox: false
+    - message:
+        fontheight: 4
+        fontsize: 'D'
+        message: 'WHEN'
+        distance: 0
+        drawbox: false
+    - message:
+        fontheight: 4
+        fontsize: 'D'
+        message: 'FLASHING'
+        distance: 6.5
+        drawbox: false
+

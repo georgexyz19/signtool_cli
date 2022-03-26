@@ -1,0 +1,25 @@
+sign:
+  fcolor: 'black'
+  bcolor: 'white'
+  shape: 'rect'
+  border:
+    width: 24
+    height: 18
+    radius: 1.5
+    offset: 0.375
+    bdwidth: 0.625
+    strokewidth: 5
+    drawmark: false  
+  messages:
+    - message:
+        fontheight: 4
+        fontsize: 'D'
+        message: '$150'
+        distance: 3.5
+        drawbox: false
+    - message:
+        fontheight: 4
+        fontsize: 'D'
+        message: 'FINE'
+        distance: 10.5
+        drawbox: false

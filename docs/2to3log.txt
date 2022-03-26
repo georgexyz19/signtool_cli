@@ -1,0 +1,393 @@
+george@desktop:~/Desktop/py_code/inkscape_extension/dev$ 2to3 -o ../dev_py3 -W -n ./
+WARNING: --write-unchanged-files/-W implies -w.
+lib2to3.main: Output in '../dev_py3' will mirror the input directory '.' layout.
+RefactoringTool: Skipping optional fixer: buffer
+RefactoringTool: Skipping optional fixer: idioms
+RefactoringTool: Skipping optional fixer: set_literal
+RefactoringTool: Skipping optional fixer: ws_comma
+
+
+RefactoringTool: Refactored ./bezmisc.py
+--- ./bezmisc.py	(original)
++++ ./bezmisc.py	(refactored)
+@@ -55,8 +55,9 @@
+         return 1.0*(-d/c),
+     return ()
+ 
+-def bezierparameterize(((bx0,by0),(bx1,by1),(bx2,by2),(bx3,by3))):
++def bezierparameterize(xxx_todo_changeme):
+     #parametric bezier
++    ((bx0,by0),(bx1,by1),(bx2,by2),(bx3,by3)) = xxx_todo_changeme
+     x0=bx0
+     y0=by0
+     cx=3*(bx1-x0)
+@@ -69,8 +70,10 @@
+     return ax,ay,bx,by,cx,cy,x0,y0
+     #ax,ay,bx,by,cx,cy,x0,y0=bezierparameterize(((bx0,by0),(bx1,by1),(bx2,by2),(bx3,by3)))
+ 
+-def linebezierintersect(((lx1,ly1),(lx2,ly2)),((bx0,by0),(bx1,by1),(bx2,by2),(bx3,by3))):
++def linebezierintersect(xxx_todo_changeme1, xxx_todo_changeme2):
+     #parametric line
++    ((lx1,ly1),(lx2,ly2)) = xxx_todo_changeme1
++    ((bx0,by0),(bx1,by1),(bx2,by2),(bx3,by3)) = xxx_todo_changeme2
+     dd=lx1
+     cc=lx2-lx1
+     bb=ly1
+@@ -99,19 +102,23 @@
+             retval.append(bezierpointatt(((bx0,by0),(bx1,by1),(bx2,by2),(bx3,by3)),i))
+     return retval
+ 
+-def bezierpointatt(((bx0,by0),(bx1,by1),(bx2,by2),(bx3,by3)),t):
++def bezierpointatt(xxx_todo_changeme3,t):
++    ((bx0,by0),(bx1,by1),(bx2,by2),(bx3,by3)) = xxx_todo_changeme3
+     ax,ay,bx,by,cx,cy,x0,y0=bezierparameterize(((bx0,by0),(bx1,by1),(bx2,by2),(bx3,by3)))
+     x=ax*(t**3)+bx*(t**2)+cx*t+x0
+     y=ay*(t**3)+by*(t**2)+cy*t+y0
+     return x,y
+ 
+-def bezierslopeatt(((bx0,by0),(bx1,by1),(bx2,by2),(bx3,by3)),t):
++def bezierslopeatt(xxx_todo_changeme4,t):
++    ((bx0,by0),(bx1,by1),(bx2,by2),(bx3,by3)) = xxx_todo_changeme4
+     ax,ay,bx,by,cx,cy,x0,y0=bezierparameterize(((bx0,by0),(bx1,by1),(bx2,by2),(bx3,by3)))
+     dx=3*ax*(t**2)+2*bx*t+cx
+     dy=3*ay*(t**2)+2*by*t+cy
+     return dx,dy
+ 
+-def beziertatslope(((bx0,by0),(bx1,by1),(bx2,by2),(bx3,by3)),(dy,dx)):
++def beziertatslope(xxx_todo_changeme5, xxx_todo_changeme6):
++    ((bx0,by0),(bx1,by1),(bx2,by2),(bx3,by3)) = xxx_todo_changeme5
++    (dy,dx) = xxx_todo_changeme6
+     ax,ay,bx,by,cx,cy,x0,y0=bezierparameterize(((bx0,by0),(bx1,by1),(bx2,by2),(bx3,by3)))
+     #quadratic coefficents of slope formula
+     if dx:
+@@ -136,9 +143,12 @@
+             retval.append(i)
+     return retval
+ 
+-def tpoint((x1,y1),(x2,y2),t):
++def tpoint(xxx_todo_changeme7, xxx_todo_changeme8,t):
++    (x1,y1) = xxx_todo_changeme7
++    (x2,y2) = xxx_todo_changeme8
+     return x1+t*(x2-x1),y1+t*(y2-y1)
+-def beziersplitatt(((bx0,by0),(bx1,by1),(bx2,by2),(bx3,by3)),t):
++def beziersplitatt(xxx_todo_changeme9,t):
++    ((bx0,by0),(bx1,by1),(bx2,by2),(bx3,by3)) = xxx_todo_changeme9
+     m1=tpoint((bx0,by0),(bx1,by1),t)
+     m2=tpoint((bx1,by1),(bx2,by2),t)
+     m3=tpoint((bx2,by2),(bx3,by3),t)
+@@ -167,7 +177,9 @@
+ mat-report no. 1992-10, Mathematical Institute, The Technical
+ University of Denmark. 
+ '''
+-def pointdistance((x1,y1),(x2,y2)):
++def pointdistance(xxx_todo_changeme10, xxx_todo_changeme11):
++    (x1,y1) = xxx_todo_changeme10
++    (x2,y2) = xxx_todo_changeme11
+     return math.sqrt(((x2 - x1) ** 2) + ((y2 - y1) ** 2))
+ def Gravesen_addifclose(b, len, error = 0.001):
+     box = 0
+@@ -208,19 +220,21 @@
+         asum += bsum
+         bsum = 0.0
+         est0 = est1
+-        for i in xrange(1, n, 2):
++        for i in range(1, n, 2):
+             bsum += f(a + (i * interval))
+             est1 = multiplier * (endsum + (2.0 * asum) + (4.0 * bsum))
+     #print multiplier, endsum, interval, asum, bsum, est1, est0
+     return est1
+ 
+-def bezierlengthSimpson(((bx0,by0),(bx1,by1),(bx2,by2),(bx3,by3)), tolerance = 0.001):
++def bezierlengthSimpson(xxx_todo_changeme12, tolerance = 0.001):
++    ((bx0,by0),(bx1,by1),(bx2,by2),(bx3,by3)) = xxx_todo_changeme12
+     global balfax,balfbx,balfcx,balfay,balfby,balfcy
+     ax,ay,bx,by,cx,cy,x0,y0=bezierparameterize(((bx0,by0),(bx1,by1),(bx2,by2),(bx3,by3)))
+     balfax,balfbx,balfcx,balfay,balfby,balfcy = 3*ax,2*bx,cx,3*ay,2*by,cy
+     return Simpson(balf, 0.0, 1.0, 4096, tolerance)
+ 
+-def beziertatlength(((bx0,by0),(bx1,by1),(bx2,by2),(bx3,by3)), l = 0.5, tolerance = 0.001):
++def beziertatlength(xxx_todo_changeme13, l = 0.5, tolerance = 0.001):
++    ((bx0,by0),(bx1,by1),(bx2,by2),(bx3,by3)) = xxx_todo_changeme13
+     global balfax,balfbx,balfcx,balfay,balfby,balfcy
+     ax,ay,bx,by,cx,cy,x0,y0=bezierparameterize(((bx0,by0),(bx1,by1),(bx2,by2),(bx3,by3)))
+     balfax,balfbx,balfcx,balfay,balfby,balfcy = 3*ax,2*bx,cx,3*ay,2*by,cy
+@@ -268,7 +282,7 @@
+         print s, st
+     '''
+     for curve in curves:
+-        print beziertatlength(curve,0.5)
++        print(beziertatlength(curve,0.5))
+ 
+ 
+ # vim: expandtab shiftwidth=4 tabstop=8 softtabstop=4 fileencoding=utf-8 textwidth=99
+RefactoringTool: Writing converted ./bezmisc.py to ../dev_py3/bezmisc.py.
+
+
+
+RefactoringTool: No changes to ./convert_color_format.py
+RefactoringTool: Writing converted ./convert_color_format.py to ../dev_py3/convert_color_format.py.
+
+
+RefactoringTool: No changes to ./cubicsuperpath.py
+RefactoringTool: Writing converted ./cubicsuperpath.py to ../dev_py3/cubicsuperpath.py.
+
+
+RefactoringTool: Refactored ./draw_border.py
+--- ./draw_border.py	(original)
++++ ./draw_border.py	(refactored)
+@@ -25,7 +25,7 @@
+ 
+ import simpletransform
+ import simplestyle
+-import cStringIO
++import io
+ from lxml import etree
+ import copy
+ import math
+@@ -376,7 +376,7 @@
+     # arg.fStrokeWidth, arg.bDrawMark = 5, True
+     # arg.fcolor, arg.bcolor = '#000000', '#FFFFFF'
+ 
+-    instream = cStringIO.StringIO('<svg></svg>')
+-    output = cStringIO.StringIO()
++    instream = io.StringIO('<svg></svg>')
++    output = io.StringIO()
+     e.affect(arg, instream, output)
+-    print(output.getvalue())
++    print((output.getvalue()))
+RefactoringTool: Writing converted ./draw_border.py to ../dev_py3/draw_border.py.
+
+
+
+RefactoringTool: Refactored ./inkex.py
+--- ./inkex.py	(original)
++++ ./inkex.py	(refactored)
+@@ -37,15 +37,15 @@
+ 
+ # a dictionary of all of the xmlns prefixes in a standard inkscape doc
+ NSS = {
+-u'sodipodi' :u'http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd',
+-u'cc'       :u'http://creativecommons.org/ns#',
+-u'ccOLD'    :u'http://web.resource.org/cc/',
+-u'svg'      :u'http://www.w3.org/2000/svg',
+-u'dc'       :u'http://purl.org/dc/elements/1.1/',
+-u'rdf'      :u'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
+-u'inkscape' :u'http://www.inkscape.org/namespaces/inkscape',
+-u'xlink'    :u'http://www.w3.org/1999/xlink',
+-u'xml'      :u'http://www.w3.org/XML/1998/namespace'
++'sodipodi' :'http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd',
++'cc'       :'http://creativecommons.org/ns#',
++'ccOLD'    :'http://web.resource.org/cc/',
++'svg'      :'http://www.w3.org/2000/svg',
++'dc'       :'http://purl.org/dc/elements/1.1/',
++'rdf'      :'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
++'inkscape' :'http://www.inkscape.org/namespaces/inkscape',
++'xlink'    :'http://www.w3.org/1999/xlink',
++'xml'      :'http://www.w3.org/XML/1998/namespace'
+ }
+ 
+ 
+@@ -98,10 +98,10 @@
+          ...
+          inkex.errormsg(_("This extension requires two selected paths."))
+     """
+-    if isinstance(msg, unicode):
++    if isinstance(msg, str):
+         sys.stderr.write(msg.encode("utf-8") + "\n")
+     else:
+-        sys.stderr.write((unicode(msg, "utf-8", errors='replace') + "\n").encode("utf-8"))
++        sys.stderr.write((str(msg, "utf-8", errors='replace') + "\n").encode("utf-8"))
+ 
+ 
+ def are_near_relative(a, b, eps):
+@@ -343,7 +343,7 @@
+         svgwidth = self.getDocumentWidth()
+         viewboxstr = self.document.getroot().get('viewBox')
+         if viewboxstr:
+-            unitmatch = re.compile('(%s)$' % '|'.join(self.__uuconv.keys()))
++            unitmatch = re.compile('(%s)$' % '|'.join(list(self.__uuconv.keys())))
+             param = re.compile(r'(([-+]?[0-9]+(\.[0-9]*)?|[-+]?\.[0-9]+)([eE][-+]?[0-9]+)?)')
+ 
+             p = param.match(svgwidth)
+@@ -381,7 +381,7 @@
+ 
+     def unittouu(self, string):
+         """Returns userunits given a string representation of units in another system"""
+-        unit = re.compile('(%s)$' % '|'.join(self.__uuconv.keys()))
++        unit = re.compile('(%s)$' % '|'.join(list(self.__uuconv.keys())))
+         param = re.compile(r'(([-+]?[0-9]+(\.[0-9]*)?|[-+]?\.[0-9]+)([eE][-+]?[0-9]+)?)')
+ 
+         p = param.match(string)
+RefactoringTool: Writing converted ./inkex.py to ../dev_py3/inkex.py.
+
+
+
+RefactoringTool: Refactored ./place_message.py
+--- ./place_message.py	(original)
++++ ./place_message.py	(refactored)
+@@ -33,7 +33,7 @@
+ import sys
+ import gzip
+ from lxml import etree
+-import cStringIO
++import io
+ 
+ 
+ def table(s):
+@@ -505,8 +505,8 @@
+     doc = etree.parse('./speed1.svg')
+     docstring = etree.tostring(doc)
+ 
+-    instream = cStringIO.StringIO(docstring)
+-    output = cStringIO.StringIO()
++    instream = io.StringIO(docstring)
++    output = io.StringIO()
+     e.affect(arg, instream, output)
+-    print(output.getvalue())
+-
++    print((output.getvalue()))
++
+RefactoringTool: Writing converted ./place_message.py to ../dev_py3/place_message.py.
+RefactoringTool: No changes to ./place_message_tb.py
+RefactoringTool: Writing converted ./place_message_tb.py to ../dev_py3/place_message_tb.py.
+
+
+RefactoringTool: Refactored ./signtool.py
+--- ./signtool.py	(original)
++++ ./signtool.py	(refactored)
+@@ -25,7 +25,7 @@
+ 
+ import simpletransform
+ import simplestyle
+-import cStringIO
++import io
+ from lxml import etree
+ import copy
+ import math
+@@ -905,7 +905,7 @@
+     # arg.fcolor = colors['black']
+     # arg.bcolor = colors['white']
+ 
+-    instream = cStringIO.StringIO('<svg></svg>')
+-    output = cStringIO.StringIO()
++    instream = io.StringIO('<svg></svg>')
++    output = io.StringIO()
+     e.affect(arg, instream, output)
+-    print(output.getvalue())
++    print((output.getvalue()))
+RefactoringTool: Writing converted ./signtool.py to ../dev_py3/signtool.py.
+
+
+
+
+RefactoringTool: Refactored ./simplepath.py
+--- ./simplepath.py	(original)
++++ ./simplepath.py	(refactored)
+@@ -48,7 +48,7 @@
+             offset = m.end()
+             continue
+         #TODO: create new exception
+-        raise Exception, 'Invalid path data!'
++        raise Exception('Invalid path data!')
+ '''
+ pathdefs = {commandfamily:
+     [
+@@ -86,14 +86,14 @@
+     
+     while 1:
+         try:
+-            token, isCommand = lexer.next()
++            token, isCommand = next(lexer)
+         except StopIteration:
+             break
+         params = []
+         needParam = True
+         if isCommand:
+             if not lastCommand and token.upper() != 'M':
+-                raise Exception, 'Invalid path, must begin with moveto.'    
++                raise Exception('Invalid path, must begin with moveto.')    
+             else:                
+                 command = token
+         else:
+@@ -106,16 +106,16 @@
+                 else:
+                     command = pathdefs[lastCommand.upper()][0].lower()
+             else:
+-                raise Exception, 'Invalid path, no initial command.'    
++                raise Exception('Invalid path, no initial command.')    
+         numParams = pathdefs[command.upper()][1]
+         while numParams > 0:
+             if needParam:
+                 try: 
+-                    token, isCommand = lexer.next()
++                    token, isCommand = next(lexer)
+                     if isCommand:
+-                        raise Exception, 'Invalid number of parameters'
++                        raise Exception('Invalid number of parameters')
+                 except StopIteration:
+-                    raise Exception, 'Unexpected end of path'
++                    raise Exception('Unexpected end of path')
+             cast = pathdefs[command.upper()][2][-numParams]
+             param = cast(token)
+             if command.islower():
+RefactoringTool: Writing converted ./simplepath.py to ../dev_py3/simplepath.py.
+RefactoringTool: Refactored ./simplestyle.py
+--- ./simplestyle.py	(original)
++++ ./simplestyle.py	(refactored)
+@@ -180,13 +180,13 @@
+ 
+ def formatStyle(a):
+     """Format an inline style attribute from a dictionary"""
+-    return ";".join([att+":"+str(val) for att,val in a.iteritems()])
++    return ";".join([att+":"+str(val) for att,val in a.items()])
+ 
+ def isColor(c):
+     """Determine if its a color we can use. If not, leave it unchanged."""
+     if c.startswith('#') and (len(c)==4 or len(c)==7):
+         return True
+-    if c.lower() in svgcolors.keys():
++    if c.lower() in list(svgcolors.keys()):
+         return True
+     #might be "none" or some undefined color constant or rgb()
+     #however, rgb() shouldnt occur at this point
+RefactoringTool: Writing converted ./simplestyle.py to ../dev_py3/simplestyle.py.
+RefactoringTool: Refactored ./simpletransform.py
+--- ./simpletransform.py	(original)
++++ ./simpletransform.py	(refactored)
+@@ -53,7 +53,7 @@
+         if len(args)==1:
+             cx,cy=(0.0,0.0)
+         else:
+-            cx,cy=map(float,args[1:])
++            cx,cy=list(map(float,args[1:]))
+         matrix=[[math.cos(a),-math.sin(a),cx],[math.sin(a),math.cos(a),cy]]
+         matrix=composeTransform(matrix,[[1,0,-cx],[0,1,-cy]])
+ #-- skewX --
+@@ -131,7 +131,7 @@
+ def fuseTransform(node):
+     if node.get('d')==None:
+         #FIXME: how do you raise errors?
+-        raise AssertionError, 'can not fuse "transform" of elements that have no "d" attribute'
++        raise AssertionError('can not fuse "transform" of elements that have no "d" attribute')
+     t = node.get("transform")
+     if t == None:
+         return
+RefactoringTool: Writing converted ./simpletransform.py to ../dev_py3/simpletransform.py.
+
+
+
+RefactoringTool: No changes to ./util.py
+RefactoringTool: Writing converted ./util.py to ../dev_py3/util.py.
+RefactoringTool: Files that were modified:
+RefactoringTool: ./bezmisc.py
+RefactoringTool: ./convert_color_format.py
+RefactoringTool: ./cubicsuperpath.py
+RefactoringTool: ./draw_border.py
+RefactoringTool: ./inkex.py
+RefactoringTool: ./place_message.py
+RefactoringTool: ./place_message_tb.py
+RefactoringTool: ./signtool.py
+RefactoringTool: ./simplepath.py
+RefactoringTool: ./simplestyle.py
+RefactoringTool: ./simpletransform.py
+RefactoringTool: ./util.py

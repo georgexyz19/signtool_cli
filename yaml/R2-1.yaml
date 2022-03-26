@@ -1,0 +1,31 @@
+sign:
+  fcolor: 'black'
+  bcolor: 'white'
+  shape: 'rect'
+  border:
+    width: 36
+    height: 48
+    radius: 2.25
+    offset: 0.625
+    bdwidth: 0.875
+    strokewidth: 5
+    drawmark: false  
+  messages:
+    - message:
+        fontheight: 6
+        fontsize: 'E'
+        message: 'SPEED'
+        distance: 6
+        drawbox: false
+    - message:
+        fontheight: 6
+        fontsize: 'E'
+        message: 'LIMIT'
+        distance: 17
+        drawbox: false
+    - message:
+        fontheight: 14
+        fontsize: 'E'
+        message: '50'
+        distance: 28
+        drawbox: false

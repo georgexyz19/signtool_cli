@@ -1,0 +1,25 @@
+sign:
+  fcolor: 'black'
+  bcolor: 'yellow'
+  shape: 'rect'
+  border:
+    width: 36
+    height: 30
+    radius: 1.875
+    offset: .5
+    bdwidth: 0.75
+    strokewidth: 5
+    drawmark: false  
+  messages:
+    - message:
+        fontheight: 7
+        fontsize: 'D'
+        message: 'WHEN'
+        distance: 5.75
+        drawbox: false
+    - message:
+        fontheight: 7
+        fontsize: 'D'
+        message: 'WET'
+        distance: 17.25
+        drawbox: false
